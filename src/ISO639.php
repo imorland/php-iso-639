@@ -196,12 +196,12 @@ class ISO639
         array('zu', 'zul', 'zul', 'zul', 'Zulu', 'isiZulu'),
     );
 
-    public $indexIso639_1 = 0;
-    public $indexIso639_2t = 1;
-    public $indexIso639_2b = 2;
-    public $indexIso639_3 = 3;
-    public $indexEnglishName = 4;
-    public $indexNativeName = 5;
+    private const ISO639_1 = 0;
+    private const ISO639_2t = 1;
+    private const ISO639_2b = 2;
+    private const ISO639_3 = 3;
+    private const ENGLISH_NAME = 4;
+    private const NATIVE_NAME = 5;
 
     /*
      * Get all language data
@@ -223,8 +223,8 @@ class ISO639
         $code = strtolower(trim($code));
 
         foreach ($this->languages as $lang) {
-            if ($lang[$this->indexIso639_1] === $code) {
-                return $lang[$this->indexEnglishName];
+            if ($lang[self::ISO639_1] === $code) {
+                return $lang[self::ENGLISH_NAME];
             }
         }
 
@@ -241,8 +241,8 @@ class ISO639
         $code = strtolower(trim($code));
 
         foreach ($this->languages as $lang) {
-            if ($lang[$this->indexIso639_1] === $code) {
-                return $lang[$this->indexNativeName];
+            if ($lang[self::ISO639_1] === $code) {
+                return $lang[self::NATIVE_NAME];
             }
         }
 
@@ -259,8 +259,8 @@ class ISO639
         $code = strtolower(trim($code));
 
         foreach ($this->languages as $lang) {
-            if ($lang[$this->indexIso639_2t] === $code) {
-                return $lang[$this->indexEnglishName];
+            if ($lang[self::ISO639_2t] === $code) {
+                return $lang[self::ENGLISH_NAME];
             }
         }
 
@@ -277,8 +277,8 @@ class ISO639
         $code = strtolower(trim($code));
 
         foreach ($this->languages as $lang) {
-            if ($lang[$this->indexIso639_2t] === $code) {
-                return $lang[$this->indexNativeName];
+            if ($lang[self::ISO639_2t] === $code) {
+                return $lang[self::NATIVE_NAME];
             }
         }
 
@@ -295,8 +295,8 @@ class ISO639
         $code = strtolower(trim($code));
 
         foreach ($this->languages as $lang) {
-            if ($lang[$this->indexIso639_2b] === $code) {
-                return $lang[$this->indexEnglishName];
+            if ($lang[self::ISO639_2b] === $code) {
+                return $lang[self::ENGLISH_NAME];
             }
         }
 
@@ -313,8 +313,8 @@ class ISO639
         $code = strtolower(trim($code));
 
         foreach ($this->languages as $lang) {
-            if ($lang[$this->indexIso639_2b] === $code) {
-                return $lang[$this->indexNativeName];
+            if ($lang[self::ISO639_2b] === $code) {
+                return $lang[self::NATIVE_NAME];
             }
         }
 
@@ -331,8 +331,8 @@ class ISO639
         $code = strtolower(trim($code));
 
         foreach ($this->languages as $lang) {
-            if ($lang[$this->indexIso639_3] === $code) {
-                return $lang[$this->indexEnglishName];
+            if ($lang[self::ISO639_3] === $code) {
+                return $lang[self::ENGLISH_NAME];
             }
         }
 
@@ -349,8 +349,8 @@ class ISO639
         $code = strtolower(trim($code));
 
         foreach ($this->languages as $lang) {
-            if ($lang[$this->indexIso639_3] === $code) {
-                return $lang[$this->indexNativeName];
+            if ($lang[self::ISO639_3] === $code) {
+                return $lang[self::NATIVE_NAME];
             }
         }
 
@@ -367,8 +367,8 @@ class ISO639
         $language_key = ucwords(strtolower($language));
 
         foreach ($this->languages as $lang) {
-            if (in_array($language_key, explode(', ', $lang[$this->indexEnglishName]))) {
-                return $lang[$this->indexIso639_1];
+            if (in_array($language_key, explode(', ', $lang[self::ENGLISH_NAME]))) {
+                return $lang[self::ISO639_1];
             }
         }
 
@@ -386,8 +386,8 @@ class ISO639
 
 
         foreach ($this->languages as $lang) {
-            if (in_array($language_key, explode(', ', $lang[$this->indexEnglishName]))) {
-                return $lang[$this->indexIso639_2t];
+            if (in_array($language_key, explode(', ', $lang[self::ENGLISH_NAME]))) {
+                return $lang[self::ISO639_2t];
             }
         }
 
@@ -404,8 +404,8 @@ class ISO639
         $language_key = ucwords(strtolower($language));
 
         foreach ($this->languages as $lang) {
-            if (in_array($language_key, explode(', ', $lang[$this->indexEnglishName]))) {
-                return $lang[$this->indexIso639_2b];
+            if (in_array($language_key, explode(', ', $lang[self::ENGLISH_NAME]))) {
+                return $lang[self::ISO639_2b];
                 break;
             }
         }
@@ -423,8 +423,8 @@ class ISO639
         $language_key = ucwords(strtolower($language));
 
         foreach ($this->languages as $lang) {
-            if (in_array($language_key, explode(', ', $lang[$this->indexEnglishName]))) {
-                return $lang[$this->indexIso639_3];
+            if (in_array($language_key, explode(', ', $lang[self::ENGLISH_NAME]))) {
+                return $lang[self::ISO639_3];
             }
         }
 
@@ -442,7 +442,7 @@ class ISO639
         $code = strtolower(trim($code));
 
         foreach ($this->languages as $lang) {
-            if ($lang[$this->indexIso639_2b] === $code) {
+            if ($lang[self::ISO639_2b] === $code) {
                 return $lang;
             }
         }
