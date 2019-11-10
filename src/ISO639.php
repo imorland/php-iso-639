@@ -4,10 +4,17 @@ namespace Matriphe\ISO639;
 
 class ISO639
 {
+    private const ISO639_1 = 0;
+    private const ISO639_2t = 1;
+    private const ISO639_2b = 2;
+    private const ISO639_3 = 3;
+    private const ENGLISH_NAME = 4;
+    private const NATIVE_NAME = 5;
+
     /*
-     * Language database, based on Wikipedia.
-     * Source: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-     */
+      * Language database, based on Wikipedia.
+      * Source: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+      */
     protected $languages = array(
         array('ab', 'abk', 'abk', 'abk', 'Abkhaz', 'аҧсуа бызшәа, аҧсшәа'),
         array('aa', 'aar', 'aar', 'aar', 'Afar', 'Afaraf'),
@@ -196,13 +203,6 @@ class ISO639
         array('zu', 'zul', 'zul', 'zul', 'Zulu', 'isiZulu'),
     );
 
-    private const ISO639_1 = 0;
-    private const ISO639_2t = 1;
-    private const ISO639_2b = 2;
-    private const ISO639_3 = 3;
-    private const ENGLISH_NAME = 4;
-    private const NATIVE_NAME = 5;
-
     /*
      * Get all language data
      *
@@ -220,15 +220,7 @@ class ISO639
      */
     public function languageByCode1($code)
     {
-        $code = strtolower(trim($code));
-
-        foreach ($this->languages as $lang) {
-            if ($lang[self::ISO639_1] === $code) {
-                return $lang[self::ENGLISH_NAME];
-            }
-        }
-
-        return '';
+        return $this->getLanguage($code, self::ISO639_1, self::ENGLISH_NAME);
     }
 
     /*
@@ -238,15 +230,7 @@ class ISO639
      */
     public function nativeByCode1($code)
     {
-        $code = strtolower(trim($code));
-
-        foreach ($this->languages as $lang) {
-            if ($lang[self::ISO639_1] === $code) {
-                return $lang[self::NATIVE_NAME];
-            }
-        }
-
-        return '';
+        return $this->getLanguage($code, self::ISO639_1, self::NATIVE_NAME);
     }
 
     /*
@@ -256,15 +240,7 @@ class ISO639
      */
     public function languageByCode2t($code)
     {
-        $code = strtolower(trim($code));
-
-        foreach ($this->languages as $lang) {
-            if ($lang[self::ISO639_2t] === $code) {
-                return $lang[self::ENGLISH_NAME];
-            }
-        }
-
-        return '';
+        return $this->getLanguage($code, self::ISO639_2t, self::ENGLISH_NAME);
     }
 
     /*
@@ -274,15 +250,7 @@ class ISO639
      */
     public function nativeByCode2t($code)
     {
-        $code = strtolower(trim($code));
-
-        foreach ($this->languages as $lang) {
-            if ($lang[self::ISO639_2t] === $code) {
-                return $lang[self::NATIVE_NAME];
-            }
-        }
-
-        return '';
+        return $this->getLanguage($code, self::ISO639_2t, self::NATIVE_NAME);
     }
 
     /*
@@ -292,15 +260,7 @@ class ISO639
      */
     public function languageByCode2b($code)
     {
-        $code = strtolower(trim($code));
-
-        foreach ($this->languages as $lang) {
-            if ($lang[self::ISO639_2b] === $code) {
-                return $lang[self::ENGLISH_NAME];
-            }
-        }
-
-        return '';
+        return $this->getLanguage($code, self::ISO639_2b, self::ENGLISH_NAME);
     }
 
     /*
@@ -310,15 +270,7 @@ class ISO639
      */
     public function nativeByCode2b($code)
     {
-        $code = strtolower(trim($code));
-
-        foreach ($this->languages as $lang) {
-            if ($lang[self::ISO639_2b] === $code) {
-                return $lang[self::NATIVE_NAME];
-            }
-        }
-
-        return '';
+        return $this->getLanguage($code, self::ISO639_2b, self::NATIVE_NAME);
     }
 
     /*
@@ -328,15 +280,7 @@ class ISO639
      */
     public function languageByCode3($code)
     {
-        $code = strtolower(trim($code));
-
-        foreach ($this->languages as $lang) {
-            if ($lang[self::ISO639_3] === $code) {
-                return $lang[self::ENGLISH_NAME];
-            }
-        }
-
-        return '';
+        return $this->getLanguage($code, self::ISO639_3, self::ENGLISH_NAME);
     }
 
     /*
@@ -346,15 +290,7 @@ class ISO639
      */
     public function nativeByCode3($code)
     {
-        $code = strtolower(trim($code));
-
-        foreach ($this->languages as $lang) {
-            if ($lang[self::ISO639_3] === $code) {
-                return $lang[self::NATIVE_NAME];
-            }
-        }
-
-        return '';
+        return $this->getLanguage($code, self::ISO639_3, self::NATIVE_NAME);
     }
 
     /*
@@ -435,6 +371,7 @@ class ISO639
      * Gat language array from ISO-639-2/b (three-letter code)
      *
      * @param $code
+     *
      * @return array|null
      */
     public function getLanguageByIsoCode2b($code)
@@ -450,4 +387,36 @@ class ISO639
         return null;
     }
 
+    /**
+     * @param string $code
+     * @param int $key
+     * @param int $lang
+     *
+     * @return string
+     */
+    private function getLanguage($code, $key, $lang)
+    {
+        $code = strtolower(trim($code));
+
+        foreach ($this->languages as $language) {
+            if ($language[$key] === $code) {
+                return $language[$lang];
+            }
+        }
+
+        return '';
+    }
+
+    private function getCode($lang, $key, $code)
+    {
+        $langKey = ucwords(strtolower($lang));
+
+        foreach ($this->languages as $language) {
+            if (in_array($langKey, explode(', ', $language[self::ENGLISH_NAME]))) {
+                return $language[self::ISO639_3];
+            }
+        }
+
+        return '';
+    }
 }
