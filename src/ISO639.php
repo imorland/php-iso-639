@@ -56,7 +56,7 @@ class ISO639
         array('fo', 'fao', 'fao', 'fao', 'Faroese', 'føroyskt'),
         array('fj', 'fij', 'fij', 'fij', 'Fijian', 'vosa Vakaviti'),
         array('fi', 'fin', 'fin', 'fin', 'Finnish', 'suomi, suomen kieli'),
-        array('fr', 'fra', 'fre', 'fra', 'French', 'français, langue française'),
+        array('fr', 'fra', 'fre', 'fra', 'French', 'français'),
         array('ff', 'ful', 'ful', 'ful', 'Fula, Fulah, Pulaar, Pular', 'Fulfulde, Pulaar, Pular'),
         array('gl', 'glg', 'glg', 'glg', 'Galician', 'galego'),
         array('ka', 'kat', 'geo', 'kat', 'Georgian', 'ქართული'),

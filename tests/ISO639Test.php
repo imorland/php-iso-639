@@ -34,7 +34,7 @@ class ISO639Test extends TestCase
     public function testNativeISO6391()
     {
         $this->assertSame('English', $this->iso->nativeByCode1('en'));
-        $this->assertSame('français, langue française', $this->iso->nativeByCode1('fr'));
+        $this->assertSame('français', $this->iso->nativeByCode1('fr'));
         $this->assertSame('español', $this->iso->nativeByCode1('es'));
         $this->assertSame('Bahasa Indonesia', $this->iso->nativeByCode1('id'));
         $this->assertSame('basa Jawa', $this->iso->nativeByCode1('jv'));
@@ -72,7 +72,7 @@ class ISO639Test extends TestCase
     public function testNativeISO6392t()
     {
         $this->assertSame('English', $this->iso->nativeByCode2t('eng'));
-        $this->assertSame('français, langue française', $this->iso->nativeByCode2t('fra'));
+        $this->assertSame('français', $this->iso->nativeByCode2t('fra'));
         $this->assertSame('español', $this->iso->nativeByCode2t('spa'));
         $this->assertSame('Bahasa Indonesia', $this->iso->nativeByCode2t('ind'));
         $this->assertSame('basa Jawa', $this->iso->nativeByCode2t('jav'));
@@ -110,7 +110,7 @@ class ISO639Test extends TestCase
     public function testNativeISO6392b()
     {
         $this->assertSame('English', $this->iso->nativeByCode2b('eng'));
-        $this->assertSame('français, langue française', $this->iso->nativeByCode2b('fre'));
+        $this->assertSame('français', $this->iso->nativeByCode2b('fre'));
         $this->assertSame('español', $this->iso->nativeByCode2b('spa'));
         $this->assertSame('Bahasa Indonesia', $this->iso->nativeByCode2b('ind'));
         $this->assertSame('basa Jawa', $this->iso->nativeByCode2b('jav'));
@@ -148,7 +148,7 @@ class ISO639Test extends TestCase
     public function testNativeISO6393()
     {
         $this->assertSame('English', $this->iso->nativeByCode3('eng'));
-        $this->assertSame('français, langue française', $this->iso->nativeByCode3('fra'));
+        $this->assertSame('français', $this->iso->nativeByCode3('fra'));
         $this->assertSame('español', $this->iso->nativeByCode3('spa'));
         $this->assertSame('Bahasa Indonesia', $this->iso->nativeByCode3('ind'));
         $this->assertSame('basa Jawa', $this->iso->nativeByCode3('jav'));
@@ -244,7 +244,7 @@ class ISO639Test extends TestCase
     {
         $result = ['en', 'eng', 'eng', 'eng', 'English', 'English'];
         $this->assertSame($result, $this->iso->getLanguageByIsoCode2b('eng'));
-        $result = ['fr', 'fra', 'fre', 'fra', 'French', 'français, langue française'];
+        $result = ['fr', 'fra', 'fre', 'fra', 'French', 'français'];
         $this->assertSame($result, $this->iso->getLanguageByIsoCode2b('fre'));
         $result = ['id', 'ind', 'ind', 'ind', 'Indonesian', 'Bahasa Indonesia'];
         $this->assertSame($result, $this->iso->getLanguageByIsoCode2b('ind'));
