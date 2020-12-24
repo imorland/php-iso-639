@@ -9,9 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install Composer dependencies
+        run: composer install
+
       - name: PHPUnit Tests
-        uses: php-actions/phpunit@v9
-        with:
-          bootstrap: vendor/autoload.php
-          configuration: phpunit.xml
-          args: --coverage-text
+        run: vendor/bin/phpunit
