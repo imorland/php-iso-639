@@ -15,7 +15,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Matriphe\\ISO639\\": "src/"
+            "IanM\\ISO639\\": "src/"
         }
     }
 }
