@@ -1,14 +1,15 @@
 # PHP ISO-639
-
-[![Build Status](https://travis-ci.org/matriphe/php-iso-639.svg)](https://travis-ci.org/matriphe/php-iso-639)
-[![Total Download](https://img.shields.io/packagist/dt/matriphe/iso-639.svg)](https://packagist.org/packages/matriphe/iso-639)
-[![Latest Stable Version](https://img.shields.io/packagist/v/matriphe/iso-639.svg)](https://packagist.org/packages/matriphe/iso-639)
+![Tests](https://github.com/imorland/php-iso-639/workflows/tests/badge.svg)
+[![Total Download](https://img.shields.io/packagist/dt/ianm/iso-639.svg)](https://packagist.org/packages/ianm/iso-639)
+[![Latest Stable Version](https://img.shields.io/packagist/v/ianm/iso-639.svg)](https://packagist.org/packages/ianm/iso-639)
 
 PHP library to convert ISO-639-1 code to language name, based on Wikipedia's [List of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
 
+Forked to modify the response for French native to simply 'Français', rather than 'Français, langue française'.
+
 ## Installation
 
-Using composer: `composer require matriphe/iso-639`
+Using composer: `composer require ianm/iso-639`
 
 ## Usage Example
 
