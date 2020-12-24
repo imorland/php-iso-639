@@ -1,5 +1,6 @@
 # PHP ISO-639
 ![Tests](https://github.com/imorland/php-iso-639/workflows/tests/badge.svg)
+![Coverage](https://img.shields.io/codecov/c/github/imorland/php-iso-639?logo=codecov)
 [![Total Download](https://img.shields.io/packagist/dt/ianm/iso-639.svg)](https://packagist.org/packages/ianm/iso-639)
 [![Latest Stable Version](https://img.shields.io/packagist/v/ianm/iso-639.svg)](https://packagist.org/packages/ianm/iso-639)
 
