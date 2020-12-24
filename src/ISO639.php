@@ -1,6 +1,6 @@
 <?php
 
-namespace Matriphe\ISO639;
+namespace IanM\ISO639;
 
 class ISO639
 {

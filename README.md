@@ -19,7 +19,7 @@ Using composer: `composer require ianm/iso-639`
 required 'src/ISO639.php';
 //required 'vendor/autoload.php'; // If using composer
 
-$iso = new Matriphe\ISO639\ISO639;
+$iso = new IanM\ISO639\ISO639;
 
 // Get language name from ISO-639-1 code
 echo $iso->languageByCode1('en'); // English
