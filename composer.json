@@ -17,8 +17,5 @@
         "psr-4": {
             "Matriphe\\ISO639\\": "src/"
         }
-    },
-    "replace":{
-        "matriphe/iso-639": "*"
     }
 }
